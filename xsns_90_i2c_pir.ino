@@ -30,12 +30,12 @@ bool Xsns90(uint8_t function) {
     uint8_t motionState = I2CPIRRead();
     if (motionState != 0xFF) {  // Valid data received
       if (motionState == 1) {
-        AddLog_P2(LOG_LEVEL_INFO, PSTR("PIR: Motion detected"));
+        AddLog(LOG_LEVEL_INFO, PSTR("PIR 0x64: Motion detected"));  // Corrected logging function
       } else {
-        AddLog_P2(LOG_LEVEL_INFO, PSTR("PIR: No motion"));
+        AddLog(LOG_LEVEL_INFO, PSTR("PIR 0x64: No motion"));  // Corrected logging function
       }
     } else {
-      AddLog_P2(LOG_LEVEL_ERROR, PSTR("PIR: Error reading I2C data"));
+      AddLog(LOG_LEVEL_ERROR, PSTR("PIR 0x64: Error reading I2C data"));  // Corrected logging function
     }
   }
   return true;
